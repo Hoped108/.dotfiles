@@ -28,3 +28,13 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <leader>fg :Rg<Space>
 nnoremap <silent> <leader>fb :Buffers<CR>
+
+" 窗口跳转优化（不用反复按Ctrl-W）
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" 保存与快速退出
+nnoremap <leader>w :write<CR>
+nnoremap <leader>q :quit<CR>

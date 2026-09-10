@@ -82,7 +82,19 @@ set hidden
 
 " 永久撤销，关闭vim后仍可撤销
 set undofile
-let &undodir = expand('~/.local/state/vim/undo') . '//'
+" 提取路径（末尾加 // 是为了让 Vim 将完整路径编码为扁平文件名，避免不同目录同名文件冲突）
+" 变量作用域 s:：将路径存在脚本局部变量中，避免污染全局命名空间。
+let s:undo_dir = expand('~/.local/state/vim/undo')
 
-" 插入模式下每次 Tab/退格处理一列。
-set softtabstop=2
+" 判断目录是否存在，不存在则使用 'p' 参数递归创建父目录
+if !isdirectory(s:undo_dir)
+    call mkdir(s:undo_dir, 'p')
+endif
+
+" 确保开启持久撤销并将路径赋值给 undodir
+let &undodir = s:undo_dir . '//'
+
+" 备份和swp文件
+set nobackup                " 不生成带有 ~ 结尾的冗余备份文件
+set nowritebackup
+set noswapfile              " 禁用 .swp 临时文件（现代环境下多数依靠 Git 和自动存盘）
