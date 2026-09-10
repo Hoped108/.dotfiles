@@ -25,8 +25,13 @@ let g:floaterm_position = 'center'
 let g:floaterm_height = 0.8
 let g:floaterm_width = 0.8
 
+" 可直接输入:help NERDTree<Tab>;
+" 或者NERDTree窗口按?键，展开插件内的快捷键映射和功能速查表
 " 在 NERDTree 中显示行号。
 let g:NERDTreeShowLineNumbers = 1
+
+" 默认显示以 . 开头的隐藏文件
+let NERDTreeShowHidden = 1
 
 " Start NERDTree and leave the cursor in it.
 " See NERDTree README 103

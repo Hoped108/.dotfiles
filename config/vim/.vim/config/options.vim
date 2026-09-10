@@ -8,9 +8,10 @@ syntax on
 
 " 缩进：Tab 显示为两列；按 Tab 时实际插入空格。
 set tabstop=2
-set shiftwidth=2
-set expandtab
-set autoindent
+set shiftwidth=2  " 执行 >> / << 缩进或者退回时增减 2 个空格
+set softtabstop=2 " 插入模式按Tab/Backspace时，一次处理 2 个空格
+set expandtab     " 按下Tab自动插入空格，而不是 \t
+set autoindent    " 换行时保持个上一行相同的缩进级别
 set smartindent
 
 " 搜索：输入时即时匹配；默认忽略大小写，模式中出现大写字母时区分大小写。
@@ -84,4 +85,4 @@ set undofile
 let &undodir = expand('~/.local/state/vim/undo') . '//'
 
 " 插入模式下每次 Tab/退格处理一列。
-set softtabstop=1
+set softtabstop=2
