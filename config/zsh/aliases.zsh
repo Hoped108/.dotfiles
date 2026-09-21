@@ -7,6 +7,9 @@ alias gs='git status'
 alias e='exit'
 alias cl='clear'
 
+alias ..='cd ..'
+alias ~='cd ~'
+
 # Command and completion colors
 autoload -Uz colors && colors
 alias ls='ls --color=auto -hv'
