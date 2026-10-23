@@ -1,10 +1,16 @@
 " Updated by: GPT-6 (Codex); 保留原设置，将撤销数据移出仓库。
-" 显示选项。
+" --- General Settings ---
 set background=dark
-set number
-set relativenumber
-set cursorline
+set autoread       " Reload files cahnged outside Vim 
+set nocompatible   " Be IMproved, required for modern defaults(not compatible for vi)
+
+filetype plugin indent on " Enable filetype detection, plugins, and indenting
 syntax on
+
+" --- UX & Visuals ---
+set number         " Show line numbers
+set relativenumber " Relative line numbers for quick motions
+set cursorline
 
 " 缩进：Tab 显示为两列；按 Tab 时实际插入空格。
 set tabstop=2
@@ -80,21 +86,34 @@ set scrolloff=10
 " 修改过的buffer不保存也可以先切换
 set hidden
 
-" 永久撤销，关闭vim后仍可撤销
-set undofile
-" 提取路径（末尾加 // 是为了让 Vim 将完整路径编码为扁平文件名，避免不同目录同名文件冲突）
-" 变量作用域 s:：将路径存在脚本局部变量中，避免污染全局命名空间。
-let s:undo_dir = expand('~/.local/state/vim/undo')
-
-" 判断目录是否存在，不存在则使用 'p' 参数递归创建父目录
-if !isdirectory(s:undo_dir)
-    call mkdir(s:undo_dir, 'p')
+" --- Persistent Undo & History ---
+set history=1000  " Command history depth
+if has('persistent_undo')
+  let s:undo_dir = expand('~/.local/state/vim/undo')  " s: local variable
+  if !isdirectory(s:undo_dir)
+    call mkdir(s:undo_dir, 'p', 0700)
+  endif
+  let &undodir = s:undo_dir . '//' " ensure each file gets a unique, collisions-free name
+  set undofile " 永久撤销，关闭vim后仍可撤销
 endif
 
-" 确保开启持久撤销并将路径赋值给 undodir
-let &undodir = s:undo_dir . '//'
+" 判断目录是否存在，不存在则使用 'p' 参数递归创建父目录
+"if !isdirectory(s:undo_dir)
+"    call mkdir(s:undo_dir, 'p')
+"endif
 
-" 备份和swp文件
+" 确保开启持久撤销并将路径赋值给 undodir
+"let &undodir = s:undo_dir . '//'
+
+" --- Backup & Swap Files ---
 set nobackup                " 不生成带有 ~ 结尾的冗余备份文件
 set nowritebackup
 set noswapfile              " 禁用 .swp 临时文件（现代环境下多数依靠 Git 和自动存盘）
+
+" --- Filetype Specific Overrides ---
+augroup filetype_overrides
+  autocmd!
+  autocmd FileType c,cpp setlocal cindent
+  autocmd FileType make setlocal noexpandtab shiftwidth=4 tabstop=4
+  autocmd BufRead, BufNewFile *.ld,*.lds setlocal filetype=ld
+augroup END

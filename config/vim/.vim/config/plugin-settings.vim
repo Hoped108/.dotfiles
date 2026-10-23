@@ -24,6 +24,7 @@ let g:floaterm_position = 'center'
 " 可选固定尺寸；保持注释时使用 Floaterm 默认值。
 let g:floaterm_height = 0.8
 let g:floaterm_width = 0.8
+let g:floaterm_title = 'Terminal ($1/$2)'
 
 " 可直接输入:help NERDTree<Tab>;
 " 或者NERDTree窗口按?键，展开插件内的快捷键映射和功能速查表

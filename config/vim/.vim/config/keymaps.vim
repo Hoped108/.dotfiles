@@ -13,9 +13,8 @@ tnoremap <F2> <C-\><C-n>
 " 打开 NERDTree。终端能否区分 Ctrl-Shift-e 和 Ctrl-e 取决于终端模拟器。
 nnoremap <leader>e :NERDTreeToggle<CR>
 
-" 进入新建 Floaterm 的命令行，但不立即执行。
-" 示例：按 <Space>tc，输入 `ls`，再按 Enter。
-nnoremap <leader>tc :FloatermNew --autoclose=0<Space>
+" toggle floating terminal with <leader>t or <F12>
+nnoremap <silent> <leader>t :FloatermToggle<CR>
 
 " 关闭搜索高亮
 nnoremap <silent> <leader>h :nohlsearch<CR>
@@ -35,6 +34,27 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" --- Smart Quit function ---
+function! SmartQuit() abort
+  " Check if floaterm plugin functions exist and if any floaterm buffer is
+  " loaded
+  if exists('*floaterm#buflist#gather')
+    let l:terms = floaterm#buflist#gather()
+    if !empty(l:terms)
+      silent! FloatermKill!
+    endif
+  endif
+  " Proceed to quit current window or file
+  quit
+endfunction
+
 " 保存与快速退出
 nnoremap <leader>w :write<CR>
-nnoremap <leader>q :quit<CR>
+nnoremap <leader>x :x<CR>
+nnoremap <leader>q :call SmartQuit()<CR>
+tnoremap <silent> <leader>q <C-\><C-n>:call SmartQuit()<CR>
+
+" --- Documentation & Help Keymaps ---
+
+" Open the comprehensive user manual table of contents in a full tab
+nnoremap <leader>? :tab help user-manual<CR>
