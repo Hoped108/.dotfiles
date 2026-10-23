@@ -4,7 +4,11 @@ if executable('clangd')
         autocmd!
         autocmd User lsp_setup call lsp#register_server({
             \ 'name': 'clangd',
-            \ 'cmd': {server_info->['clangd', '--background-index', '--clang-tidy', '--header-insertion=iwyu']},
+            \ 'cmd': {server_info->['clangd', 
+              \ '--background-index', 
+              \ '--clang-tidy', 
+              \ '--header-insertion=iwyu',
+              \ '-j=4']},
             \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
             \ })
     augroup END

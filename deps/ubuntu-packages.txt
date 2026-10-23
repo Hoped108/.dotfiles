@@ -11,6 +11,7 @@ fd-find
 ripgrep
 zoxide
 universal-ctags
+bear
 coreutils
 tar
 util-linux
