@@ -5,6 +5,10 @@ alias v='vim'
 # git 
 alias gs='git status'
 alias gd='git diff'
+alias ga='git add'
+alias gm='git commit'
+
+alias gl='git log --oneline --all --decorate --graph'
 
 # others
 alias t='tldr'
