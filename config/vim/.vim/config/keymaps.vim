@@ -27,6 +27,12 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <leader>fg :Rg<Space>
 nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <leader>ft :Tags<CR>
+
+" Tagbar (Function & Symbol Outline)
+nnoremap <leader>tb :TagbarToggle<CR>
+let g:tagbar_width = 30
+let g:tagbar_autofocus = 1
 
 " 窗口跳转优化（不用反复按Ctrl-W）
 nnoremap <C-h> <C-w>h

@@ -41,18 +41,11 @@ let NERDTreeShowHidden = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1 " Set to 1 if using a patched Powerline/Nerd font
+
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
-
-" default value leaves the name unmodified
-"let g:airline#extensions#branch#format = 0
-
-" to only show the tail, e.g. a branch 'feature/foo' becomes 'foo', use
-"let g:airline#extensions#branch#format = 1
-
-" to truncate all path sections but the last one, e.g. a branch
-" 'foo/bar/baz' becomes 'f/b/baz', use
-"let g:airline#extensions#branch#format = 2
 
 " if a string is provided, it should be the name of a function that
 " takes a string and returns the desired value
@@ -68,3 +61,8 @@ endfunction
 "    autocmd FileType floaterm setlocal buflisted
 "    autocmd User FloatermOpen,FloatermClose call airline#extensions#tabline#buflist#clean()
 "augroup END
+
+" Enhanced C Highlighting Options
+let g:cpp_function_highlight = 1
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1

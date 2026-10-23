@@ -10,6 +10,7 @@ tmux
 fd-find
 ripgrep
 zoxide
+universal-ctags
 coreutils
 tar
 util-linux

@@ -2,9 +2,7 @@
 " --- General Settings ---
 set background=dark
 set autoread       " Reload files cahnged outside Vim 
-set nocompatible   " Be IMproved, required for modern defaults(not compatible for vi)
 
-filetype plugin indent on " Enable filetype detection, plugins, and indenting
 syntax on
 
 " --- UX & Visuals ---
@@ -33,7 +31,7 @@ set clipboard=unnamedplus
 " tags 和 include 文件。Ctrl-n打开补全菜单，Cn向下，Cp向上选择，Cy
 " 确认选择，Ce取消补全，恢复原来输入
 set complete=.,w,b,t,i
-set completeopt=menuone,noselect
+set completeopt=menuone,noselect,noinsert,preview
 
 " 始终显示底部状态栏。Airline 加载后可能接管它；这里的定义是内置后备方案。
 set laststatus=2

@@ -5,6 +5,7 @@ source ~/.vim/config/plugins.vim
 source ~/.vim/config/options.vim
 source ~/.vim/config/keymaps.vim
 source ~/.vim/config/plugin-settings.vim
+source ~/.vim/config/lsp.vim
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
