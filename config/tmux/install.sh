@@ -5,3 +5,5 @@ set -euo pipefail
 source "$(dirname -- "${BASH_SOURCE[0]}")/../../scripts/lib.sh"
 module_context
 link_file "$DOTFILES_ROOT/config/tmux/.tmux.conf" .tmux.conf
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

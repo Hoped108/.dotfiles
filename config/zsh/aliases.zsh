@@ -1,12 +1,17 @@
 # Updated by: GPT-6 (Codex); 通用别名，移除 eza 依赖。
 # Aliases
 alias v='vim'
-alias g='git'
-alias t='tldr'
+
+# git 
 alias gs='git status'
+alias gd='git diff'
+
+# others
+alias t='tldr'
 alias e='exit'
 alias cl='clear'
 
+# cd
 alias ..='cd ..'
 alias ~='cd ~'
 
