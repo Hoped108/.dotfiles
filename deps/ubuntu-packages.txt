@@ -5,7 +5,7 @@ ca-certificates
 curl
 git
 zsh
-vim
+vim-gtk3
 tmux
 fd-find
 ripgrep
@@ -15,3 +15,4 @@ coreutils
 tar
 util-linux
 # fzf: pinned Git component + its upstream install --bin, not Ubuntu's older fzf.
+# vim-gtk3 provides +clipboard through update-alternatives; vim.basic is -clipboard.

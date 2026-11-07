@@ -1,2 +1,2 @@
-- [ ] 暂不支持系统剪切板，只能在vim buffer里面进行剪切
+- [x] 系统剪贴板：需要 +clipboard 构建（Ubuntu 上装 vim-gtk3），WSLg 下与 Windows 互通
 - [ ] fzf只是使用了默认配置

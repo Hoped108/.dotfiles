@@ -52,7 +52,7 @@ check_dependencies() {
     missing=1
   fi
   if (( missing )); then
-    echo 'Ubuntu: sudo apt install bash ca-certificates curl git zsh vim tmux fd-find ripgrep zoxide coreutils tar util-linux' >&2
+    echo 'Ubuntu: sudo apt install bash ca-certificates curl git zsh vim-gtk3 tmux fd-find ripgrep zoxide coreutils tar util-linux' >&2
     return 1
   fi
   printf 'Dependencies OK. Target: %s; repo: %s\n' "$DF_HOME" "$DOTFILES_ROOT"

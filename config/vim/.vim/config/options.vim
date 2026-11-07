@@ -24,7 +24,8 @@ set incsearch
 set ignorecase
 set smartcase
 
-" 当 Vim 编译时提供 clipboard 支持时，使用系统剪贴板。
+" 需要 +clipboard 的构建才能生效（Ubuntu: vim-gtk3 / vim-athena；vim.basic 是 -clipboard，
+" 此时这一行会被静默忽略）。WSLg 下 X11 剪贴板会桥到 Windows。
 set clipboard=unnamedplus
 
 " Vim 内置插入补全的候选来源：当前 buffer、其他窗口、已加载 buffer 和

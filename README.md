@@ -19,7 +19,7 @@ exec zsh
 [deps/ubuntu-packages.txt](deps/ubuntu-packages.txt)，缺少时可以手动安装：
 
 ```sh
-sudo apt install bash ca-certificates curl git zsh vim tmux fd-find ripgrep zoxide coreutils tar util-linux
+sudo apt install bash ca-certificates curl git zsh vim-gtk3 tmux fd-find ripgrep zoxide coreutils tar util-linux
 ```
 
 `--apply` 创建基础目录，依次执行 `config/zsh/install.sh`、`config/vim/install.sh`、
