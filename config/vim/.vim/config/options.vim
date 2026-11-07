@@ -111,7 +111,10 @@ set noswapfile              " 禁用 .swp 临时文件（现代环境下多数�
 " --- Filetype Specific Overrides ---
 augroup filetype_overrides
   autocmd!
-  autocmd FileType c,cpp setlocal cindent
+  " C/C++：与 NEMU/abstract-machine 里现有代码一致用 2 空格（Vim 的 C 风格默认是 8）。
+  " ftplugin/c.vim 不设置缩进宽度，这里显式写定，以免以后改全局 tabstop 时被带跑；
+  " expandtab 沿用全局设置。'smartindent' 在 'cindent' 打开时不起作用，不用单独关。
+  autocmd FileType c,cpp setlocal cindent shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType make setlocal noexpandtab shiftwidth=4 tabstop=4
   autocmd BufRead, BufNewFile *.ld,*.lds setlocal filetype=ld
 augroup END
