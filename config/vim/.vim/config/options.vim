@@ -27,10 +27,10 @@ set smartcase
 " 当 Vim 编译时提供 clipboard 支持时，使用系统剪贴板。
 set clipboard=unnamedplus
 
-" Vim 内置插入补全的候选来源：当前 buffer、其他窗口、已加载 buffer、
-" tags 和 include 文件。Ctrl-n打开补全菜单，Cn向下，Cp向上选择，Cy
+" Vim 内置插入补全的候选来源：当前 buffer、其他窗口、已加载 buffer 和
+" include 文件。Ctrl-n打开补全菜单，Cn向下，Cp向上选择，Cy
 " 确认选择，Ce取消补全，恢复原来输入
-set complete=.,w,b,t,i
+set complete=.,w,b,i
 set completeopt=menuone,noselect,noinsert,preview
 
 " 始终显示底部状态栏。Airline 加载后可能接管它；这里的定义是内置后备方案。

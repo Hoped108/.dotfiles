@@ -34,6 +34,11 @@ let g:NERDTreeShowLineNumbers = 1
 " 默认显示以 . 开头的隐藏文件
 let NERDTreeShowHidden = 1
 
+" 只用 NERDTree 浏览，不需要 fs_menu 的 add/move/delete 菜单。
+" fs_menu.vim 开头有 if exists('g:loaded_nerdtree_fs_menu') 的 guard，
+" 提前设置可跳过它构造菜单的开销（首次加载 NERDTree 时生效）。
+let g:loaded_nerdtree_fs_menu = 1
+
 " Start NERDTree and leave the cursor in it.
 " See NERDTree README 103
 
@@ -66,3 +71,5 @@ endfunction
 let g:cpp_function_highlight = 1
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
+
+let g:airline_theme = 'hybrid'

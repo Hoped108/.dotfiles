@@ -10,8 +10,8 @@ cnoremap jk <Esc>
 " 离开终端输入模式，但不关闭终端 buffer。
 tnoremap <F2> <C-\><C-n>
 
-" 打开 NERDTree。终端能否区分 Ctrl-Shift-e 和 Ctrl-e 取决于终端模拟器。
-nnoremap <leader>e :NERDTreeToggle<CR>
+" 打开 NERDTree；插件在第一次调用时才加载（见 plugins.vim 的懒加载）。
+nnoremap <leader>e :call ToggleNERDTree()<CR>
 
 " toggle floating terminal with <leader>t or <F12>
 nnoremap <silent> <leader>t :FloatermToggle<CR>
@@ -27,12 +27,6 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <leader>fg :Rg<Space>
 nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <leader>ft :Tags<CR>
-
-" Tagbar (Function & Symbol Outline)
-nnoremap <leader>tb :TagbarToggle<CR>
-let g:tagbar_width = 30
-let g:tagbar_autofocus = 1
 
 " 窗口跳转优化（不用反复按Ctrl-W）
 nnoremap <C-h> <C-w>h
