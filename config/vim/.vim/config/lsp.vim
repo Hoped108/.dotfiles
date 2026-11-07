@@ -48,7 +48,8 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gi <plug>(lsp-implementation)
     nmap <buffer> K  <plug>(lsp-hover)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> <leader>f  <plug>(lsp-document-format)
+    " 用 <leader>lf 而不是 <leader>f：后者与 <leader>ff/fg/fb 同前缀，会逼 Vim 等 timeoutlen。
+    nmap <buffer> <leader>lf <plug>(lsp-document-format)
 endfunction
 
 augroup lsp_install
